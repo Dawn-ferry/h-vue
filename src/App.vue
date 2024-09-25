@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- 使用模板语法 -->
+  <MyCustomComponent :title="customTitle" :message="customMessage" @updateCount="handleCount" />
+
+  <HR />
+  <!-- 使用 render 函数 -->
+  <!-- <div> -->
+  <render-component :title="customTitle" :message="customMessage" @updateCount="handleCount" />
+  <!-- </div> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from 'vue';
+import MyCustomComponent from './components/HelloWorld.vue';
 
-export default {
-  name: 'App',
+export default defineComponent({
   components: {
-    HelloWorld
+    MyCustomComponent,
+    'render-component': MyCustomComponent // 注册自定义组件
+  },
+  data() {
+    return {
+      customTitle: 'Hello from Custom Component',
+      customMessage: 'This is a custom component'
+    };
+  },
+  methods: {
+    handleCount() {
+      console.log('Count incremented');
+    }
+  },
+  render() {
+    // 使用 h 函数创建自定义组件
+    return h(MyCustomComponent, {
+      title: this.customTitle,
+      message: this.customMessage
+    });
   }
-}
+});
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

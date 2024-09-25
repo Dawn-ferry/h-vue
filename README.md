@@ -1,19 +1,21 @@
-# demo
+# Vue 中的 h 函数是一个用于创建虚拟 DOM 节点的函数
+它是 createElement 的缩写，全称为 "hyperscript"。
 
-## Project setup
-```
-npm install
-```
+h 函数的常见用途包括：
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+1,自定义渲染逻辑：当模板语法不足以处理复杂的动态内容或需要根据运行时条件动态生成 DOM 结构时，可以使用 h 函数在组件的 render 函数中编写更灵活的渲染逻辑。
+2,高级组件库开发：组件库开发者通常会依赖 h 函数来创建可复用、功能丰富的组件。
+3,性能优化：在某些性能关键路径上，通过手动编写 h 函数来精确控制 DOM 更新，避免不必要的子组件渲染，从而提升应用性能。
+4,无模板组件：如果不希望或者无法使用 .vue 单文件组件中的 <template> 标签，可以完全基于 h 函数来编写组件的渲染内容。
+5,与 JSX 结合：Vue 3 支持 JSX 语法，而 JSX 在编译阶段会被转换为 h 函数调用，因此对于喜欢 React 风格 JSX 开发的开发者来说，h 函数是底层支持的基础。
+6,服务端渲染 (SSR)：在服务端渲染 Vue 应用时，也需要使用 h 函数来创建 SSR 环境下的虚拟 DOM 节点
+
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+h 函数是 Vue.js 生态系统中的一个强大工具，它允许开发者以编程和灵活的方式创建虚拟 DOM 树
+以编程式的方式创建组件
+```
