@@ -1,3 +1,5 @@
+
+# vue 中虚拟节点是怎么实现？
 # Vue 中的 h 函数是一个用于创建虚拟 DOM 节点的函数
 它是 createElement 的缩写，全称为 "hyperscript"。
 
